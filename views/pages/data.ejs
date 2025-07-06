@@ -1,0 +1,144 @@
+<style>
+ #your-profile{
+  background-color: #3A00B3;
+  color: white;
+  padding: 3px;
+  width: 200px;
+  border-radius: 10px;
+ }
+ .no-record{
+  background-color: white;
+  border-radius: 10px;
+  width: 390px;
+  height: 420px;
+  
+ }
+ .one{
+  background-color: #3A00B3;
+  padding: 3px;
+  color: white;
+  border-radius: 10px;
+ }
+ .two{
+   background-color: #3A00B3;
+  padding: 3px;
+  color: white;
+  border-radius: 10px;
+ }
+ .two >a{
+  color: white;
+ }
+</style>
+<%- layout('design/boilerplate') -%>
+<link rel="stylesheet" href="/css/data.css">
+
+
+<div class="profile-wrapper">
+  <% if(allData.length > 0) { %>
+ 
+    <div id="data-user" class="profile-container">
+      <img src="<%= allData[0].owner.picture %>" alt="Profile Image">
+      <h5><%= allData[0].owner.name %></h5>
+      <p>@<%= allData[0].owner.username %></p>
+    
+
+      <div class="profile-actions">
+        <a href="/user/<%= allData[0].owner._id %>/friends" class="btn-primary">Check Friends</a>
+
+        <% if (currentUser && currentUser._id.equals(allData[0].owner._id)) { %>
+          <p class="your-profile"><i class="fa-solid fa-user"></i>Your Profile</p>
+        <% } else { %>
+          <% if (currentUser.friends.includes(allData[0].owner._id)) { %>
+            <p class="friend-status">You Are Friends</p>
+          <% } else { %>
+            <form id="req-form" action="/request/<%= allData[0].owner._id %>" method="post">
+              <button type="submit" class="btn-primary" id="req-btn">Send Request</button>
+            </form>
+          <% } %>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- Posts Section Below -->
+    <h3 class="section-title"><%= allData[0].owner.name %>'s Posts</h3>
+    <div class="posts-container">
+      <% if (allData && allData.length > 0) { %>
+        <% for (let data of allData) { %>
+          <div class="post-container">
+            <strong>@<%= data.owner.username %></strong>
+            <% if (data.post) { %>
+              <img src="<%= data.post %>" alt="Post image">
+            <% } %>
+            <hr>
+            <p><%= data.title %></p>
+     <div style="display: flex; justify-content: space-between;">
+
+
+<div>   <i class="far fa-thumbs-up"></i>  <%= allData[0].likes.length %> </div>
+<div> <i class="far fa-comment"></i>  Comment <%= allData[0].comment.length %> </div>
+<div><i class="far fa-share-square"></i>share</div>
+
+      
+     </div>
+          </div>
+        
+        <% } %>
+      <% } else { %>
+        <div class="no-posts">
+          <h5>No Posts Yet</h5>
+        </div>
+      <% } %>
+    </div>
+  <% } else { %> 
+    <div class="no-record">
+      
+<div class="user-profile-card">
+  <div class="user-profile-header-1">
+    <img src="<%= userData.picture %>" width="200px" style="border-radius: 50%;" alt="<%= userData.name %>'s profile picture">
+    <div class="user-info-1">
+
+      <p class="user-username-1">@<%= userData.username %></p>
+    </div>
+  </div>
+  
+  <form id="req-form" action="/request/<%=userData._id %>" method="post" class="request-form">
+
+
+ <% if(currentUser&&currentUser._id.equals(userData._id)){ %>  
+<h3 class="offset-3" id="your-profile">Your Profile</h3>
+<h3><a href="/user/<%= userData._id %>/friends">Check Friends</a></h3>
+<%   }else{ %> 
+
+
+<%if(userData.friends.includes(currentUser._id)){%>
+<h3 class="one">You Both Are Friends</h3>
+<h3 class="two"> <a href="/user/<%= userData._id%>/friends ">See Friends</a> </h3>
+<% }else{ %> 
+
+
+
+ <button type="submit" class="btn btn-sm btn-primary">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+      </svg>
+      Send Friend Request
+    </button>
+
+  <% } %> 
+
+
+  <% } %> 
+   
+
+
+  </form>
+</div>
+
+
+
+    </div>
+  <% } %> 
+</div>
+
+<script src="/js/request.js"></script>

@@ -1,0 +1,58 @@
+<%- layout('design/boilerplate') -%>
+
+<style>
+
+
+
+
+  .friend-avatar {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .friend-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .friend-username {
+    color: #6c757d;
+    font-size: 0.85rem;
+  }
+
+  .accept-btn {
+    margin-top: 8px;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+  }
+</style>
+
+<div class="container mt-5">
+  <h3 class="mb-4 fw-bold">Pending Friend Requests</h3>
+
+  <% if (pendingRequest.requests.length === 0) { %>
+    <div class="alert alert-info text-center">No pending friend requests.</div>
+  <% } else { %>
+    <% for (let request of pendingRequest.requests) { %>
+      <div class="col-12 mb-3">
+        <div class="card friend-card border-0 shadow-sm">
+          <div class="card-body d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-3">
+              <img src="<%= request.picture %>" class="friend-avatar" alt="Profile Image">
+              <div>
+                <div class="friend-name"><%= request.name %></div>
+                <div class="friend-username">@<%= request.username %></div>
+              </div>
+            </div>
+            <form action="/accept/<%= request._id %>" method="post">
+              <button type="submit" class="btn btn-primary btn-sm accept-btn">Accept</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  <% } %>
+</div>

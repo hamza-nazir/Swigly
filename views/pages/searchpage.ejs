@@ -1,0 +1,59 @@
+<%- layout('design/boilerplate') -%>
+
+<style>
+  .search-list {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+  }
+
+  .search-item {
+    
+    width: 500px;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease;
+  }
+
+  .search-item:hover {
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .search-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .search-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .search-name:hover {
+    text-decoration: underline;
+    color: #1877f2;
+  }
+</style>
+
+<div class="search-list">
+  <div style="font-weight: 600; font-size: 18px; margin-bottom: 10px;">User Found(1)</div>
+
+  <% for (let data of user) { %>
+    <div class="search-item">
+      <img src="<%= data.picture %>" class="search-avatar" alt="User">
+      <a class="search-name" href="/user/<%= data._id %>"><%= data.name %></a>
+    </div>
+  <% } %>
+</div>

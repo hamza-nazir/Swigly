@@ -1,0 +1,94 @@
+
+<style>
+  .aside-box {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+margin-top: 12px;
+}
+#aside-2{
+
+height: 79vh;
+overflow-y: scroll;
+}
+#aside-2::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.aside-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.aside-text-block p {
+  font-size: 14.5px;
+  color: #333;
+}
+
+.aside-text-block small {
+  font-size: 13px;
+  color: #666;
+}
+
+.trending-list {
+  
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  
+  flex-direction: column;
+  gap: 8px;
+}
+
+.trending-list li {
+  font-size: 14px;
+  color: #333;
+  background-color: #f5f5f5;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.trending-list li:hover {
+  background-color: #e0e0ff;
+  color: #4A00E0;
+}
+
+</style>
+
+<div class="aside-box">
+  <h5 class="aside-title">Sponsored</h5>
+
+  <div class="aside-text-block mb-3">
+    <p class="fw-semibold mb-1">Tech World Expo</p>
+    <small class="text-muted">Visit www.techworld.com</small>
+  </div>
+
+  <div class="aside-text-block mb-3">
+    <p class="fw-semibold mb-1">New Fashion Trends</p>
+    <small class="text-muted">Visit www.stylehub.com</small>
+  </div>
+
+  <div class="aside-text-block">
+    <p class="fw-semibold mb-1">Smart Gadgets Sale</p>
+    <small class="text-muted">Visit www.gadgetzone.com</small>
+  </div>
+</div>
+
+<div class="aside-box mt-4">
+  <h5 class="aside-title">Trending Topics</h5>
+  <ul class="trending-list">
+    <li>#Elections2025</li>
+    <li>#TechStartups</li>
+    <li>#UETLahore</li>
+    <li>#PakistanZindabad</li>
+    <li>#ReactJS</li>
+  </ul>
+</div>

@@ -1,0 +1,45 @@
+#div-grid{
+    display: grid;
+    grid-template-columns: 250px 620px 350px
+}
+
+
+#aside-1{
+   
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 10px;
+
+margin-left: 30px;
+   
+}
+#aside-2{
+  
+    height: 85vh;
+    
+}
+#main-div-body{
+   
+    overflow-y: scroll;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+a{
+list-style: none;
+text-decoration: none;
+color: black;
+
+}
+
+#main-div-body::-webkit-scrollbar {
+  width: 0px; 
+}
+html::-webkit-scrollbar {
+  width: 0px; 
+}
+

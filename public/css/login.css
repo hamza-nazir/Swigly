@@ -1,0 +1,124 @@
+  :root {
+      --swigly-primary: #4a00e0;
+      --swigly-secondary: #8e2de2;
+      --swigly-dark: #2d3436;
+      --swigly-light: #f5f6fa;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: #f0f2f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    
+    .login-container {
+      max-width: 450px;
+      width: 100%;
+    }
+    
+    .login-card {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+    
+    .card-header {
+      background-color: var(--swigly-primary);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      border-bottom: none;
+    }
+    
+    .card-title {
+      font-weight: 600;
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    
+    .card-body {
+      padding: 2rem;
+      background-color: white;
+    }
+    
+    .form-control {
+      border-radius: 8px;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      transition: all 0.2s;
+    }
+    
+    .form-control:focus {
+      border-color: var(--swigly-primary);
+      box-shadow: 0 0 0 3px rgba(74, 0, 224, 0.1);
+    }
+    
+    .form-label {
+      font-weight: 500;
+      color: var(--swigly-dark);
+      margin-bottom: 0.5rem;
+    }
+    
+    .btn-login {
+      background-color: var(--swigly-primary);
+      border: none;
+      border-radius: 8px;
+      padding: 10px 0;
+      font-weight: 600;
+      width: 100%;
+      margin-top: 1rem;
+    }
+    
+    .btn-login:hover {
+      background-color: #3a00b3;
+    }
+    
+    .signup-link {
+      display: block;
+      text-align: center;
+      margin-top: 1.5rem;
+      color: #65676b;
+    }
+    
+    .signup-link a {
+      color: var(--swigly-primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    .signup-link a:hover {
+      text-decoration: underline;
+    }
+    
+    .input-group-text {
+      background-color: white;
+      border-right: none;
+      color: #65676b;
+    }
+    
+    .input-with-icon {
+      border-left: none;
+    }
+    
+    .forgot-password {
+      text-align: right;
+      margin-top: 0.5rem;
+    }
+    
+    .forgot-password a {
+      color: #65676b;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    
+    .forgot-password a:hover {
+      color: var(--swigly-primary);
+      text-decoration: underline;
+    }
+    
+    .alert {
+      border-radius: 8px;
+    }

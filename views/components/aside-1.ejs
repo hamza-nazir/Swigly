@@ -1,0 +1,77 @@
+<style>
+    body {
+  background-color: #f4f4f4;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 20px;
+  background: #fff;
+  border-radius: 12px;
+  max-width: 260px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-links a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-links a i {
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #4A00E0;
+  padding: 8px;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-links a span {
+  font-size: 15px;
+}
+
+.sidebar-links a:hover {
+  background-color: #f0f0ff;
+  color: #4A00E0;
+}
+
+.sidebar-links a:hover i {
+  background-color: #3a00b3;
+}
+#aside-1{
+   
+    height: 80vh;
+}
+</style>
+
+<div class="sidebar-links">
+  <a href="/user/<%= currentUser._id %>/friends">
+    <i class="fas fa-user-friends"></i><span>Friends</span>
+  </a>
+  <a href="#">
+    <i class="fas fa-bookmark"></i><span>Saved</span>
+  </a>
+  <a href="#">
+    <i class="fas fa-bell"></i><span>Notifications</span>
+  </a>
+  <a href="#">
+    <i class="fas fa-store"></i><span>Marketplace</span>
+  </a>
+  <a href="#">
+    <i class="fas fa-newspaper"></i><span>News</span>
+  </a>
+</div>

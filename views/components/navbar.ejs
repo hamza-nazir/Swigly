@@ -1,0 +1,69 @@
+<nav class="swigly-navbar">
+    <div class="nav-container">
+        <!-- Left side with logo and user -->
+        <div class="nav-brand">
+            <a href="/" class="logo-link">
+          
+                <h1><span class="brand-name">Swigly</span></h1>
+            </a>
+        </div>
+
+        <!-- Middle with search -->
+        <div class="nav-search">
+            <form action="/search" method="get" class="search-form">
+                <div class="search-input-group">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="search" name="username" placeholder="Search by username..." class="search-input">
+                    <button type="submit" class="search-button">Search</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Right side with navigation -->
+        <div class="nav-main">
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="/" class="nav-link" title="Home">
+                        <i class="fas fa-home nav-icon"></i>
+                        <span class="nav-text">Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/feed" class="nav-link" title="Create Post">
+                        <i class="fas fa-plus-square nav-icon"></i>
+                        <span class="nav-text">Create</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/notifications" class="nav-link" title="Notifications">
+                        <i class="fas fa-bell nav-icon"></i>
+                        <span class="nav-text">Notifications</span>
+             
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="<%= currentUser.picture %>" alt="Profile" class="user-avatar">
+                        <span class="nav-text"><%= currentUser.name %></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="/user/<%= currentUser._id %>">Your Profile</a></li>
+                    
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </div>
+</nav>
+
+
+<!-- JavaScript for mobile menu -->

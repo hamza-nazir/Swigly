@@ -1,0 +1,103 @@
+<%- layout('design/boilerplate') -%>
+
+<style>
+  .friends-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .friends-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .friends-header h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .friends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .friend-card {
+    width: 500px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+
+
+
+  .friend-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid #f0f0f0;
+  }
+
+  .friend-info {
+    flex: 1;
+  }
+
+  .friend-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 5px 0;
+  }
+
+  .friend-username {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+  }
+
+  .no-friends {
+    text-align: center;
+    padding: 50px;
+    color: #666;
+    font-size: 1.2rem;
+    grid-column: 1 / -1;
+  }
+</style>
+
+<div class="friends-container">
+  <div class="friends-header">
+    <h1 style="text-decoration: underline;"><%= data.name %>  Friends</h1>
+    <p>You have <%= data.friends.length %> friends</p>
+  </div>
+
+  <div class="friends-grid">
+    <% if(data.friends.length > 0) { %>
+      <% for(user of data.friends) { %>
+<a href="/user/<%= user._id %> ">
+ <div class="friend-card">
+          <img src="<%= user.picture %>" class="friend-avatar" alt="<%= user.name %>'s profile picture">
+          <div class="friend-info">
+            <p class="friend-name"><%= user.name %></p>
+            <p class="friend-username">@<%= user.username %></p>
+          </div>
+        </div>
+</a>
+       
+
+      <% } %>
+    <% } else { %>
+      <div class="no-friends">
+        <p>You don't have any friends yet.</p>
+        <a href="/users" class="btn-primary">Find Friends</a>
+      </div>
+    <% } %>
+  </div>
+</div>
