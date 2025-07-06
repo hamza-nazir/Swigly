@@ -33,9 +33,9 @@ async function editFun(event,postID,postURl){
       text: "This action will delete the post.",
       html:`
     <div> 
-<img src='${res.data.post}' width='100px'>
+<img  style='border-radius:20px' src='${res.data.post}' width='200px'>
     </div>
-      <input id="newTitle" value="${title}" type="text" name="newTitle">
+      <input style='border: 1px solid rgb(197, 195, 195); padding: 10px;' id="newTitle" value="${title}" type="text" name="newTitle">
 
       `,
    
